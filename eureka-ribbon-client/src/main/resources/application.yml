@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: eureka-ribbon-client
+
+server:
+  port: 8081
+
+eureka:
+  instance:
+    hostname: eureka-ribbon-client
+  client:
+    service-url:
+      defauleZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/

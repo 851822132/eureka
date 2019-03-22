@@ -1,0 +1,11 @@
+server:
+  port: 8763
+spring:
+  application:
+    name: eureka-client
+eureka:
+  instance:
+    hostname: eureka-client
+  client:
+    service-url:
+      defauleZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
