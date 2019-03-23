@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Description:
  */
 //value为远程调用其它服务的服务名
-@FeignClient(value = "eureka-client")
+@FeignClient(value = "eureka-client",fallback = FeignServiceHystrix.class)
 public interface FeignClientInterface {
 
     @GetMapping("/hi/index")

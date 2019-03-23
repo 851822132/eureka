@@ -1,0 +1,27 @@
+server:
+  port: 5000
+
+spring:
+  application:
+    name: eureka-zuul
+
+eureka:
+  client:
+    service-url:
+      defauleZone: http://eureka-server1:8761/eureka/,http://eureka-server2:8762/eureka/
+zuul:
+  routes:
+    client:
+      path: /client/**
+      serviceId: eureka-client
+    ribbonapi:
+      path: /ribbonapi/**
+      serviceId: eureka-ribbon-client
+    feignapi:
+      path: /feignapi/**
+      serviceId: eureka-feign-client
+        #匹配/github/直接重定向到https://github.com/
+    github:
+      path: /github/**
+      url: https://github.com/
+
