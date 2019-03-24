@@ -5,9 +5,17 @@ spring:
     active: pro
   cloud:
     config:
-#      name: config-client             #对应{application}部分
+      discovery:
+        service-id: config-server
+        enabled: true
+      #      name: config-client             #对应{application}部分
 #      profile: dev                       #对应{profile}部分
-      uri: http://localhost:5001          #配置中心的具体地址
+#      uri: http://localhost:5001          #配置中心的具体地址
       fail-fast: true
-#      discovery:
-#        service-id: config-server
+eureka:
+  #  instance:
+  #    hostname: localhost
+  client:
+    service-url:
+      #      defauleZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+      defauleZone: http://eureka-server1:8761/eureka/,http://eureka-server2:8762/eureka/
