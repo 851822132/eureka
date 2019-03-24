@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: config-client
+  profiles:
+    active: pro
+  cloud:
+    config:
+#      name: config-client             #对应{application}部分
+#      profile: dev                       #对应{profile}部分
+      uri: http://localhost:5001          #配置中心的具体地址
+      fail-fast: true
+#      discovery:
+#        service-id: config-server

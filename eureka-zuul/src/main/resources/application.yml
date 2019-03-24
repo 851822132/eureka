@@ -25,3 +25,7 @@ zuul:
       path: /github/**
       url: https://github.com/
 
+#feign:
+#  hystrix:
+#    enabled: true
+

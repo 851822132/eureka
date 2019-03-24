@@ -1,0 +1,24 @@
+server:
+  port: 5001
+
+spring:
+  application:
+    name: config-server
+#GitHub
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/851822132/spring-cloud-repo
+          search-paths: config-client
+          username:
+          password:
+      label: master
+#本地
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          search-locations: classpath:/share
+#  profiles:
+#    active: native

@@ -3,29 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.3.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>com.ysh</groupId>
+        <artifactId>eureka</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>com.ysh</groupId>
-    <artifactId>eureka</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>eureka</name>
-    <description>一个练习springcloud注册和发现的demo</description>
-
-    <modules>
-        <module>eureka-server</module>
-        <module>eureka-server-b</module>
-        <module>eureka-client</module>
-        <module>eureka-client-b</module>
-        <module>eureka-ribbon-client</module>
-        <module>eureka-feign-client-a</module>
-        <module>eureka-zuul</module>
-        <module>config-server</module>
-        <module>config-client</module>
-    </modules>
+    <artifactId>config-server</artifactId>
+    <name>config-server</name>
+    <description>Spring Cloud配置中心</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -36,8 +20,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
 
         <dependency>
@@ -45,7 +29,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <dependencyManagement>
