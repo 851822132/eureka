@@ -1,0 +1,6 @@
+server:
+  port: 5021
+#
+#spring:
+#  application:
+#    name: config-client

@@ -4,6 +4,26 @@ server:
 spring:
   application:
     name: eureka-zuul
+  rabbitmq:
+    host: 192.168.153.134
+    port: 5672
+    username: admin
+    password: admin
+    listener:
+      direct:
+        retry:
+          enabled: true
+      simple:
+        retry:
+          enabled: true
+  zipkin:
+    sender:
+      type: rabbit
+  #    base-url: http://localhsot:9411
+  sleuth:
+    sampler:
+      #以100%的概率将链路的数据上传给ZIPkin Server,默认值为0.1
+      probability: 1.0
 
 eureka:
   client:

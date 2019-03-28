@@ -6,7 +6,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 //开启服务注册的功能
-@EnableEurekaClient
+//@EnableEurekaClient
 @EnableDiscoveryClient
 @SpringBootApplication
 public class EurekaClientApplication {

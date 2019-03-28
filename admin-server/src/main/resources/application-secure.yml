@@ -1,0 +1,12 @@
+
+spring:
+  security:
+    user:
+      name: admin
+      password: admin
+eureka:
+  instance:
+    #注册给eureka的时候告诉eureka自己的密码
+    metadata-map:
+      user.name: admin
+      user.password: admin

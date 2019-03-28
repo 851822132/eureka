@@ -1,0 +1,30 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: admin-server
+  profiles:
+    active: secure
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10    #服务刷新时间配置，每隔这个时间会主动心跳一次
+    health-check-url-path: /actuator/health
+  #  instance:
+  #    hostname: localhost
+  client:
+    registryFetchIntervalSeconds: 5   #eureka client刷新本地缓存时间
+    service-url:
+      #      defauleZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+      defauleZone: http://eureka-server1:8761/eureka/,http://eureka-server2:8762/eureka/
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
