@@ -27,6 +27,7 @@
         <module>config-client</module>
         <module>config-client-b</module>
         <module>zipkin-server</module>
+        <module>zipkin-server-b</module>
         <module>admin-server</module>
     </modules>
 
