@@ -29,6 +29,7 @@
         <module>zipkin-server</module>
         <module>zipkin-server-b</module>
         <module>admin-server</module>
+        <module>admin-security</module>
     </modules>
 
     <properties>
