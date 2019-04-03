@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -28,14 +29,17 @@ public class Oauth2Config extends AuthorizationServerConfigurerAdapter {
     @Autowired
     @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         //配置了一些客户端的基本信息，将客户端的信息存储在内存中
         clients.inMemory()
                 // 配置一个客户端
-                .withClient("user-services")
-                .secret("123456789")
+                .withClient("user-service")
+//                .secret("123456")
+                .secret(passwordEncoder.encode("123456"))
                 // 配置客户端的域
                 .scopes("service")
                 // 配置验证类型为refresh_token和password

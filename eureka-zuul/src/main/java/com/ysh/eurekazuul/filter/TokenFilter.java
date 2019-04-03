@@ -49,10 +49,13 @@ public class TokenFilter extends ZuulFilter {
         logger.info("--->>> TokenFilter {},{}", request.getMethod(), request.getRequestURL().toString());
 
         String token = request.getParameter("token");// 获取请求的参数
+        String Authorization = request.getHeader("Authorization");
+        logger.error("token是:{}",Authorization);
         if (StringUtils.isNotBlank(token)) {
             ctx.setSendZuulResponse(true); //对请求进行路由
             ctx.setResponseStatusCode(200);
             ctx.set("isSuccess", true);
+            ctx.addZuulRequestHeader("Authorization",Authorization);
         } else {
             ctx.setSendZuulResponse(false); //不对其进行路由
             ctx.setResponseStatusCode(400);

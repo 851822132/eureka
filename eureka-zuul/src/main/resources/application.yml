@@ -38,13 +38,14 @@ zuul:
       path: /ribbonapi/**
       serviceId: eureka-ribbon-client
     feignapi:
+
       path: /feignapi/**
       serviceId: eureka-feign-client
         #匹配/github/直接重定向到https://github.com/
     github:
       path: /github/**
       url: https://github.com/
-
+  sensitive-headers:
 #feign:
 #  hystrix:
 #    enabled: true

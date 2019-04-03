@@ -16,7 +16,7 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
  * @date Oct 29, 2018
  */
 @Configuration
-@MapperScan("com.ysh.adminsecurity.*.dao")	// 扫描DAO
+@MapperScan("com.ysh.adminsecurity.dao")	// 扫描DAO
 public class MybatisConfig {
   @Autowired
   private DataSource dataSource;
@@ -26,11 +26,11 @@ public class MybatisConfig {
     SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
     sessionFactory.setDataSource(dataSource);
     // 扫描Model
-    sessionFactory.setTypeAliasesPackage("com.ysh.adminsecurity.*.model");
+    sessionFactory.setTypeAliasesPackage("com.ysh.adminsecurity.model");
     
 	PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
     // 扫描映射文件
-	sessionFactory.setMapperLocations(resolver.getResources("classpath*:**/mapping/*.xml"));
+	sessionFactory.setMapperLocations(resolver.getResources("classpath*:/mapping/*.xml"));
 	
     return sessionFactory.getObject();
   }
